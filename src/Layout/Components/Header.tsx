@@ -34,7 +34,7 @@ export const Header = () => {
       borderStyle={"solid"}
       borderColor={useColorModeValue("gray.200", "gray.900")}
     >
-      <Container maxW={"6xl"} as={Stack}>
+      <Container maxW={"8xl"} as={Stack}>
         <Flex w="100%" minH={"60px"} py={{ base: 2 }} align={"center"}>
           <Flex
             flex={{ base: 1, md: "auto" }}
@@ -270,7 +270,15 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Inspiration",
+    label: "Home",
+    href: "#",
+  },
+  {
+    label: "About",
+    href: "#",
+  },
+  {
+    label: "Menu",
     children: [
       {
         label: "Explore Design Work",
@@ -285,26 +293,11 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: "Find Work",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Learn Design",
+    label: "Blog",
     href: "#",
   },
   {
-    label: "Hire Designers",
+    label: "Contact",
     href: "#",
   },
 ];

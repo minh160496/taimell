@@ -3,6 +3,7 @@ import { Blogs } from "../pages/Blog";
 import { Contact } from "../pages/Contact/Contact";
 import { Home } from "../pages/Home";
 import { Listing } from "../pages/Listing";
+import { ProductDetail } from "../pages/ProductDetail";
 
 export const pathObj = {
   about: {
@@ -20,6 +21,10 @@ export const pathObj = {
   contact: {
     title: "Liên hệ",
     path: "/contact",
+  },
+  productDetail: {
+    title: "Chi tiet",
+    path: "/product-detail",
   },
 };
 
@@ -43,5 +48,9 @@ export const routers = [
   {
     path: pathObj.blogs.path,
     element: Blogs,
+  },
+  {
+    path: pathObj.productDetail.path,
+    element: ProductDetail,
   },
 ];

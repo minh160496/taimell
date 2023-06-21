@@ -23,8 +23,8 @@ export const TabProducts = (props: ITabProduct) => {
       <Center>
         <Heading>{title}</Heading>
       </Center>
-      <Center>
-        <Text>{subTitle}</Text>
+      <Center mb="40px">
+        <Text textAlign="center">{subTitle}</Text>
       </Center>
       <CarouselProducts>{children}</CarouselProducts>
     </Box>
@@ -38,28 +38,42 @@ interface ICarouselProducts {
 export const CarouselProducts = (props: ICarouselProducts) => {
   const { children } = props;
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 3,
+    slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1536,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 1280,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 0,
         },
       },
       {
