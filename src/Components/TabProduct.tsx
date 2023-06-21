@@ -88,8 +88,8 @@ export const CarouselProducts = (props: ICarouselProducts) => {
 
   const [slider, setSlider] = useState<Slider | null>(null);
 
-  const top = useBreakpointValue({ base: "90%", md: "50%" });
-  const side = useBreakpointValue({ base: "30%", md: "10px" });
+  const top = useBreakpointValue({ base: "50%" });
+  const side = useBreakpointValue({ base: "2px", md: "10px" });
   return (
     <Box pos="relative">
       <IconButton

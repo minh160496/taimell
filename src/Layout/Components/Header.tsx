@@ -22,6 +22,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import { InputSearch } from "../../Components/InputSearch";
 
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -34,7 +35,7 @@ export const Header = () => {
       borderStyle={"solid"}
       borderColor={useColorModeValue("gray.200", "gray.900")}
     >
-      <Container maxW={"8xl"} as={Stack}>
+      <Container maxW={"6xl"} as={Stack}>
         <Flex w="100%" minH={"60px"} py={{ base: 2 }} align={"center"}>
           <Flex
             flex={{ base: 1, md: "auto" }}
@@ -204,6 +205,7 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+      <InputSearch />
     </Stack>
   );
 };

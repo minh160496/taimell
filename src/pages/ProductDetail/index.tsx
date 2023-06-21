@@ -20,7 +20,7 @@ import { Layout } from "../../Layout";
 export const ProductDetail = () => {
   return (
     <Layout>
-      <Container maxW={"8xl"}>
+      <Container maxW={"6xl"}>
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}

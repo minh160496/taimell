@@ -91,7 +91,6 @@ export const CardProduct = (props: ICardProduct) => {
   return (
     <LinkBox
       as={Card}
-      maxW={{ lg: "450px" }}
       transition="0.5s"
       _hover={{ transform: "translateY(-10px)" }}
       cursor="pointer"
