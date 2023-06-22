@@ -6,7 +6,7 @@ import { Box } from "@chakra-ui/react";
 
 export const Home = () => {
   return (
-    <Layout>
+    <Layout isHomePage>
       <Box>
         <Hero />
       </Box>

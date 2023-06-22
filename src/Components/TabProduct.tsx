@@ -9,6 +9,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
+import { IconArrow } from "./IconArrow";
 
 interface ITabProduct {
   title: string;
@@ -89,39 +90,31 @@ export const CarouselProducts = (props: ICarouselProducts) => {
   const [slider, setSlider] = useState<Slider | null>(null);
 
   const top = useBreakpointValue({ base: "50%" });
-  const side = useBreakpointValue({ base: "2px", md: "10px" });
+  const side = useBreakpointValue({ base: "10px", md: "-20px" });
   return (
     <Box pos="relative">
-      <IconButton
-        bg="pink.400"
-        _hover={{ background: "pink.300" }}
+      <IconArrow
+        w="40px"
+        h="40px"
+        action="prev"
         aria-label="left-arrow"
-        colorScheme="messenger"
-        borderRadius="full"
-        position="absolute"
         left={side}
         top={top}
         transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickPrev()}
-      >
-        <BiLeftArrowAlt />
-      </IconButton>
-      <IconButton
-        bg="pink.400"
-        _hover={{ background: "pink.300" }}
-        aria-label="right-arrow"
-        colorScheme="messenger"
-        borderRadius="full"
-        position="absolute"
+      />
+      <IconArrow
+        w="40px"
+        h="40px"
+        action="next"
+        aria-label="left-arrow"
         right={side}
         top={top}
         transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickNext()}
-      >
-        <BiRightArrowAlt />
-      </IconButton>
+      />
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {children}
       </Slider>

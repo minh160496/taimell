@@ -1,7 +1,7 @@
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 import React from "react";
-import { Box, IconButton, useBreakpointValue } from "@chakra-ui/react";
-import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import Slider from "react-slick";
+import { IconArrow } from "../../Components/IconArrow";
 
 const settings = {
   dots: true,
@@ -22,15 +22,15 @@ export const Hero = () => {
   const side = useBreakpointValue({ base: "30%", md: "10px" });
 
   const banners = [
-    "https://images.pexels.com/photos/1161931/pexels-photo-1161931.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "https://images.pexels.com/photos/3025620/pexels-photo-3025620.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "https://images.pexels.com/photos/1213558/pexels-photo-1213558.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "https://cdn.shopify.com/s/files/1/0745/8989/6993/files/herom.jpg?v=1682582225&width=1100",
+    "https://cdn.shopify.com/s/files/1/0745/8989/6993/files/herom.jpg?v=1682582225&width=1100",
+    "https://cdn.shopify.com/s/files/1/0745/8989/6993/files/herom.jpg?v=1682582225&width=1100",
   ];
 
   return (
     <Box
       position={"relative"}
-      height={"600px"}
+      aspectRatio={{ base: 1, md: 2 }}
       width={"full"}
       overflow={"hidden"}
     >
@@ -45,41 +45,29 @@ export const Hero = () => {
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
-      <IconButton
-        bg="pink.400"
-        _hover={{ background: "pink.300" }}
+      <IconArrow
+        action="prev"
         aria-label="left-arrow"
-        colorScheme="messenger"
-        borderRadius="full"
-        position="absolute"
         left={side}
         top={top}
         transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickPrev()}
-      >
-        <BiLeftArrowAlt />
-      </IconButton>
-      <IconButton
-        bg="pink.400"
-        _hover={{ background: "pink.300" }}
+      />
+      <IconArrow
+        action="next"
         aria-label="right-arrow"
-        colorScheme="messenger"
-        borderRadius="full"
-        position="absolute"
         right={side}
         top={top}
         transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickNext()}
-      >
-        <BiRightArrowAlt />
-      </IconButton>
+      />
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {banners.map((url, index) => (
           <Box
             key={index}
-            h="600px"
+            aspectRatio={{ base: 1, md: 2 }}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"

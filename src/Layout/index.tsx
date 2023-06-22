@@ -1,11 +1,17 @@
+import { BackTop } from "../Components/BackTop";
 import { Footer } from "./Components/Footer";
 import { Header } from "./Components/Header";
-import { BackTop } from "../Components/BackTop";
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+interface ILayout {
+  children: React.ReactNode;
+  isHomePage?: boolean;
+}
+
+export const Layout = (props: ILayout) => {
+  const { isHomePage = false, children } = props;
   return (
     <>
-      <Header />
+      <Header isHomePage={isHomePage} />
       {children}
       <Footer />
       <BackTop />

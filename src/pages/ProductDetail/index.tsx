@@ -3,6 +3,7 @@ import {
   Button,
   Container,
   Flex,
+  HStack,
   Heading,
   Image,
   List,
@@ -31,7 +32,7 @@ export const ProductDetail = () => {
               rounded={"md"}
               alt={"product image"}
               src={
-                "https://images.unsplash.com/photo-1596516109370-29001ec8ec36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyODE1MDl8MHwxfGFsbHx8fHx8fHx8fDE2Mzg5MzY2MzE&ixlib=rb-1.2.1&q=80&w=1080"
+                "https://cdn.shopify.com/s/files/1/0745/8989/6993/files/07-mai-ngo_leon.jpg?v=1686387614"
               }
               fit={"cover"}
               align={"center"}
@@ -85,7 +86,7 @@ export const ProductDetail = () => {
               <Box>
                 <Text
                   fontSize={{ base: "16px", lg: "18px" }}
-                  color={useColorModeValue("yellow.500", "yellow.300")}
+                  color={"pink.400"}
                   fontWeight={"500"}
                   textTransform={"uppercase"}
                   mb={"4"}
@@ -109,7 +110,7 @@ export const ProductDetail = () => {
               <Box>
                 <Text
                   fontSize={{ base: "16px", lg: "18px" }}
-                  color={useColorModeValue("yellow.500", "yellow.300")}
+                  color={"pink.400"}
                   fontWeight={"500"}
                   textTransform={"uppercase"}
                   mb={"4"}
@@ -165,22 +166,36 @@ export const ProductDetail = () => {
               </Box>
             </Stack>
 
-            <Button
-              rounded={"none"}
-              w={"full"}
-              mt={8}
-              size={"lg"}
-              py={"7"}
-              bg={useColorModeValue("gray.900", "gray.50")}
-              color={useColorModeValue("white", "gray.900")}
-              textTransform={"uppercase"}
-              _hover={{
-                transform: "translateY(2px)",
-                boxShadow: "lg",
-              }}
-            >
-              Add to cart
-            </Button>
+            <HStack>
+              <Button
+                rounded={"none"}
+                w={"full"}
+                mt={8}
+                size={"lg"}
+                py={"7"}
+                colorScheme="pink"
+                textTransform={"uppercase"}
+              >
+                Add to cart
+              </Button>
+
+              <Button
+                rounded={"none"}
+                w={"full"}
+                mt={8}
+                size={"lg"}
+                py={"7"}
+                bg={useColorModeValue("gray.900", "gray.50")}
+                color={useColorModeValue("white", "gray.900")}
+                textTransform={"uppercase"}
+                _hover={{
+                  transform: "translateY(2px)",
+                  boxShadow: "lg",
+                }}
+              >
+                Buy now
+              </Button>
+            </HStack>
 
             <Stack
               direction="row"

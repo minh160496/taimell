@@ -102,7 +102,7 @@ export const CardProduct = (props: ICardProduct) => {
         <Stack mt="6" spacing="3">
           <StyledHeading size="md">{name}</StyledHeading>
           <Text>{desc}</Text>
-          <Text color="blue.600" fontSize="2xl">
+          <Text color="green.600" fontSize="2xl">
             {price}$
           </Text>
           <Rating rating={4.5} numReviews={10} />
@@ -118,7 +118,7 @@ export const CardProduct = (props: ICardProduct) => {
           <Button variant="solid" colorScheme="pink" flex={1}>
             Buy now
           </Button>
-          <Button variant="ghost" colorScheme="blue" flex={1}>
+          <Button variant="ghost" colorScheme="green" flex={1}>
             Add to cart
           </Button>
         </ButtonGroup>
