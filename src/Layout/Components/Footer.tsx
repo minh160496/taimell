@@ -9,8 +9,11 @@ import {
   VisuallyHidden,
   chakra,
   useColorModeValue,
+  Button,
+  Center,
 } from "@chakra-ui/react";
-import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaYoutube, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
@@ -61,31 +64,48 @@ export const Footer = () => {
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={"flex-start"}>
-            <ListHeader>Company</ListHeader>
-            <Link href={"#"}>About Us</Link>
-            <Link href={"#"}>Blog</Link>
-            <Link href={"#"}>Careers</Link>
-            <Link href={"#"}>Contact Us</Link>
+            <ListHeader>Công ty</ListHeader>
+            <Link href={"/gioi-thieu"}>Giới thiệu</Link>
+            <Link href={"/tin-tuc"}>Tin tức</Link>
+            <Link href={"#"}>Cẩn trọng</Link>
+            <Link href={"/lien-he"}>Liên hệ</Link>
           </Stack>
 
           <Stack align={"flex-start"}>
-            <ListHeader>Support</ListHeader>
-            <Link href={"#"}>Help Center</Link>
-            <Link href={"#"}>Safety Center</Link>
-            <Link href={"#"}>Community Guidelines</Link>
+            <ListHeader>Hỗ trợ</ListHeader>
+            <Link href={"#"}>Trung tâm hỗ trợ</Link>
+            <Link href={"#"}>Trung tâm an toàn</Link>
+            <Link href={"#"}>Hướng dẫn sử dụng</Link>
           </Stack>
 
           <Stack align={"flex-start"}>
-            <ListHeader>Legal</ListHeader>
-            <Link href={"#"}>Cookies Policy</Link>
-            <Link href={"#"}>Privacy Policy</Link>
-            <Link href={"#"}>Terms of Service</Link>
-            <Link href={"#"}>Law Enforcement</Link>
+            <ListHeader>Chứng nhận</ListHeader>
+            <Link href={"#"}>Chính sách bản quyền</Link>
+            <Link href={"#"}>Chính sách bảo mật</Link>
           </Stack>
 
           <Stack align={"flex-start"}>
-            <ListHeader>Install App</ListHeader>
-            {/** social */}
+            <ListHeader>Kết nối</ListHeader>
+            <Button
+              as={Link}
+              colorScheme="facebook"
+              leftIcon={<FaFacebook />}
+              href="https://www.facebook.com/"
+            >
+              <Center>
+                <Text>Facebook</Text>
+              </Center>
+            </Button>
+            <Button
+              as={Link}
+              variant={"outline"}
+              leftIcon={<FcGoogle />}
+              href="https://www.google.com/mail"
+            >
+              <Center>
+                <Text>Google</Text>
+              </Center>
+            </Button>
           </Stack>
         </SimpleGrid>
       </Container>
@@ -104,10 +124,15 @@ export const Footer = () => {
           justify={{ md: "space-between" }}
           align={{ md: "center" }}
         >
-          <Text>© 2022 Chakra Templates. All rights reserved</Text>
+          <Text>© 2023 Coppyright and design by Le Minh</Text>
           <Stack direction={"row"} spacing={6}>
-            <SocialButton label={"Twitter"} href={"#"}>
-              <FaTwitter />
+            <SocialButton
+              label={"Twitter"}
+              href={
+                "https://www.facebook.com/profile.php?id=100009988841813&mibextid=ZbWKwL"
+              }
+            >
+              <FaFacebook />
             </SocialButton>
             <SocialButton label={"YouTube"} href={"#"}>
               <FaYoutube />

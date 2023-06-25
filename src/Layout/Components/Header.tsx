@@ -64,9 +64,10 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
           >
             <Link href="/">
               <Image
-                w="100px"
-                src="https://cdn.shopify.com/s/files/1/0745/8989/6993/files/logo.svg?v=1683175180&width=200"
+                w="200px"
+                src="src/assets/logo.png"
                 alt="Logo"
+                py={"12px"}
               />
             </Link>
 
