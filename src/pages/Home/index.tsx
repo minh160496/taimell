@@ -25,10 +25,7 @@ export const Home = () => {
             top={{ base: "-12px", md: "68px" }}
           >
             <MotionSon>
-              <Image
-                w={{ base: "200px", md: "400px" }}
-                src="src/assets/son-thoi.png"
-              />
+              <Image w={{ base: "200px", md: "400px" }} src="/son-thoi.png" />
             </MotionSon>
           </Box>
 
@@ -40,7 +37,7 @@ export const Home = () => {
             <MotionHoa>
               <Image
                 w={{ base: "150px", md: "300px", lg: "700px" }}
-                src="src/assets/hoa.png"
+                src="/hoa.png"
               />
             </MotionHoa>
           </Box>
@@ -64,7 +61,7 @@ export const Home = () => {
           <MotionHoa>
             <Image
               w={{ base: "150px", md: "200px", lg: "300px" }}
-              src="src/assets/hoa-hong-2.png"
+              src="/hoa-hong-2.png"
             />
           </MotionHoa>
         </Box>

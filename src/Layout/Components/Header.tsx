@@ -63,12 +63,7 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
             align="center"
           >
             <Link href="/">
-              <Image
-                w="200px"
-                src="src/assets/logo.png"
-                alt="Logo"
-                py={"12px"}
-              />
+              <Image w="200px" src="/logo.png" alt="Logo" py={"12px"} />
             </Link>
 
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
