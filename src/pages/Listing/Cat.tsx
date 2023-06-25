@@ -1,5 +1,7 @@
 import {
+  Button,
   ButtonProps,
+  Checkbox,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -7,20 +9,16 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
+  HStack,
+  Heading,
   Icon,
   IconButton,
-  useDisclosure,
-  Checkbox,
-  CheckboxGroup,
   Stack,
-  Heading,
-  Button,
-  HStack,
   Tooltip,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { FaFilter } from "react-icons/fa";
-import { Accordions } from "./Accordions";
 
 export const Cat = (props: ButtonProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -1,15 +1,14 @@
 import {
-  Container,
   Box,
-  ButtonGroup,
-  Progress,
-  Flex,
   Button,
+  ButtonGroup,
+  Flex,
+  Progress,
   useToast,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { Layout } from "../../Layout";
 import { Form1, Form2, Form3 } from "./Form";
-import { useState } from "react";
 
 export const Checkout = () => {
   const toast = useToast();

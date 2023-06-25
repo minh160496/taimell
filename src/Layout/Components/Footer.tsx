@@ -1,18 +1,18 @@
-import { ReactNode } from "react";
 import {
   Box,
+  Button,
+  Center,
   Container,
-  Stack,
-  SimpleGrid,
-  Text,
   Link,
+  SimpleGrid,
+  Stack,
+  Text,
   VisuallyHidden,
   chakra,
   useColorModeValue,
-  Button,
-  Center,
 } from "@chakra-ui/react";
-import { FaTwitter, FaYoutube, FaInstagram, FaFacebook } from "react-icons/fa";
+import { ReactNode } from "react";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
@@ -63,7 +63,7 @@ export const Footer = () => {
     >
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
-          <Stack align={"flex-start"}>
+          <Stack align={{ base: "center", sm: "flex-start", md: "flex-start" }}>
             <ListHeader>Công ty</ListHeader>
             <Link href={"/gioi-thieu"}>Giới thiệu</Link>
             <Link href={"/tin-tuc"}>Tin tức</Link>
@@ -71,20 +71,26 @@ export const Footer = () => {
             <Link href={"/lien-he"}>Liên hệ</Link>
           </Stack>
 
-          <Stack align={"flex-start"}>
+          <Stack align={{ base: "center", sm: "flex-start", md: "flex-start" }}>
             <ListHeader>Hỗ trợ</ListHeader>
             <Link href={"#"}>Trung tâm hỗ trợ</Link>
             <Link href={"#"}>Trung tâm an toàn</Link>
             <Link href={"#"}>Hướng dẫn sử dụng</Link>
           </Stack>
 
-          <Stack align={"flex-start"}>
+          <Stack
+            align={{
+              base: "center",
+              sm: "flex-start",
+              md: "flex-start",
+            }}
+          >
             <ListHeader>Chứng nhận</ListHeader>
             <Link href={"#"}>Chính sách bản quyền</Link>
             <Link href={"#"}>Chính sách bảo mật</Link>
           </Stack>
 
-          <Stack align={"flex-start"}>
+          <Stack align={{ base: "center", sm: "flex-start", md: "flex-start" }}>
             <ListHeader>Kết nối</ListHeader>
             <Button
               as={Link}
@@ -119,7 +125,7 @@ export const Footer = () => {
           as={Stack}
           maxW={"6xl"}
           py={4}
-          direction={{ base: "column", md: "row" }}
+          direction={{ base: "column", sm: "row" }}
           spacing={4}
           justify={{ md: "space-between" }}
           align={{ md: "center" }}
@@ -127,7 +133,7 @@ export const Footer = () => {
           <Text>© 2023 Coppyright and design by Le Minh</Text>
           <Stack direction={"row"} spacing={6}>
             <SocialButton
-              label={"Twitter"}
+              label={"Facebook"}
               href={
                 "https://www.facebook.com/profile.php?id=100009988841813&mibextid=ZbWKwL"
               }

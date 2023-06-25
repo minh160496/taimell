@@ -1,6 +1,7 @@
 import {
   Box,
   Container,
+  Divider,
   Flex,
   Grid,
   GridItem,
@@ -15,14 +16,12 @@ import {
   Text,
   VStack,
   useColorModeValue,
-  Divider,
-  Link,
 } from "@chakra-ui/react";
 import { MdLocalShipping } from "react-icons/md";
 import { ButtonAddCart } from "../../Components/ButtonAddCart";
 import { ButtonBuy } from "../../Components/ButtonBuy";
-import { Layout } from "../../Layout";
 import { CardProduct } from "../../Components/CardProduct";
+import { Layout } from "../../Layout";
 
 export const ProductDetail = () => {
   return (

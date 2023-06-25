@@ -1,29 +1,19 @@
 import {
-  Badge,
   Box,
-  Circle,
-  Flex,
-  Icon,
-  Image,
-  Tooltip,
-  chakra,
-  useColorModeValue,
+  ButtonGroup,
   Card,
   CardBody,
-  Stack,
   CardFooter,
-  ButtonGroup,
-  Text,
+  Flex,
   Heading,
-  Button,
-  Divider,
-  VStack,
+  Image,
   LinkBox,
   LinkOverlay,
+  Stack,
+  Text,
 } from "@chakra-ui/react";
-import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
-import { FiShoppingCart } from "react-icons/fi";
 import styled from "@emotion/styled";
+import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { ButtonAddCart } from "./ButtonAddCart";
 import { ButtonBuy } from "./ButtonBuy";
 
@@ -90,6 +80,8 @@ export const CardProduct = (props: ICardProduct) => {
     href = "#",
   } = props;
 
+  console.log(isNew, numReviews);
+
   return (
     <LinkBox
       as={Card}
@@ -108,7 +100,7 @@ export const CardProduct = (props: ICardProduct) => {
           <Text color="green.600" fontSize="2xl">
             {price}$
           </Text>
-          <Rating rating={4.5} numReviews={10} />
+          <Rating rating={rating} numReviews={10} />
         </Stack>
       </CardBody>
       <CardFooter>
