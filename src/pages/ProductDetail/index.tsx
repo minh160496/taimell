@@ -1,8 +1,9 @@
 import {
   Box,
-  Button,
   Container,
   Flex,
+  Grid,
+  GridItem,
   HStack,
   Heading,
   Image,
@@ -14,14 +15,19 @@ import {
   Text,
   VStack,
   useColorModeValue,
+  Divider,
+  Link,
 } from "@chakra-ui/react";
 import { MdLocalShipping } from "react-icons/md";
+import { ButtonAddCart } from "../../Components/ButtonAddCart";
+import { ButtonBuy } from "../../Components/ButtonBuy";
 import { Layout } from "../../Layout";
+import { CardProduct } from "../../Components/CardProduct";
 
 export const ProductDetail = () => {
   return (
     <Layout>
-      <Container maxW={"6xl"}>
+      <Container maxW={"6xl"} mt={{ base: "80px", md: "48px" }}>
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}
@@ -167,34 +173,8 @@ export const ProductDetail = () => {
             </Stack>
 
             <HStack>
-              <Button
-                rounded={"none"}
-                w={"full"}
-                mt={8}
-                size={"lg"}
-                py={"7"}
-                colorScheme="pink"
-                textTransform={"uppercase"}
-              >
-                Add to cart
-              </Button>
-
-              <Button
-                rounded={"none"}
-                w={"full"}
-                mt={8}
-                size={"lg"}
-                py={"7"}
-                bg={useColorModeValue("gray.900", "gray.50")}
-                color={useColorModeValue("white", "gray.900")}
-                textTransform={"uppercase"}
-                _hover={{
-                  transform: "translateY(2px)",
-                  boxShadow: "lg",
-                }}
-              >
-                Buy now
-              </Button>
+              <ButtonAddCart mt={8} />
+              <ButtonBuy mt={8} />
             </HStack>
 
             <Stack
@@ -207,6 +187,66 @@ export const ProductDetail = () => {
             </Stack>
           </Stack>
         </SimpleGrid>
+
+        <Heading as="h2" marginTop="5">
+          Sản phẩm có liên quan
+        </Heading>
+        <Divider marginTop="5" />
+        <Grid
+          gridTemplateColumns={{ md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
+          rowGap="32px"
+          columnGap="16px"
+          mt="12px"
+          mb="48px"
+        >
+          <GridItem>
+            <CardProduct
+              name="Tóc giả nam"
+              desc="Tóc giả nam tốt nhất thị trường"
+              isNew
+              rating={4}
+              numReviews={5}
+              price={350}
+              imageURL="https://cdn.shopify.com/s/files/1/0745/8989/6993/files/07-mai-ngo_leon.jpg?v=1686387614"
+            />
+          </GridItem>
+
+          <GridItem>
+            <CardProduct
+              name="Tóc giả nam"
+              desc="Tóc giả nam tốt nhất thị trường"
+              isNew
+              rating={4}
+              numReviews={5}
+              price={350}
+              imageURL="https://cdn.shopify.com/s/files/1/0745/8989/6993/files/07-mai-ngo_leon.jpg?v=1686387614"
+            />
+          </GridItem>
+
+          <GridItem>
+            <CardProduct
+              name="Tóc giả nam"
+              desc="Tóc giả nam tốt nhất thị trường"
+              isNew
+              rating={4}
+              numReviews={5}
+              price={350}
+              imageURL="https://cdn.shopify.com/s/files/1/0745/8989/6993/files/07-mai-ngo_leon.jpg?v=1686387614"
+            />
+          </GridItem>
+
+          <GridItem>
+            <CardProduct
+              name="Tóc giả nam"
+              desc="Tóc giả nam tốt nhất thị trường"
+              isNew
+              rating={4}
+              numReviews={5}
+              price={350}
+              imageURL="https://cdn.shopify.com/s/files/1/0745/8989/6993/files/07-mai-ngo_leon.jpg?v=1686387614"
+            />
+          </GridItem>
+        </Grid>
       </Container>
     </Layout>
   );

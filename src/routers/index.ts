@@ -1,30 +1,60 @@
+import { Checkout } from "./../pages/Checkout";
 import { About } from "../pages/About";
-import { Blogs } from "../pages/Blog";
-import { Contact } from "../pages/Contact/Contact";
+import { Blogs } from "../pages/Blogs";
+import { Cart } from "../pages/Cart";
+import { Contact } from "../pages/Contact";
 import { Home } from "../pages/Home";
 import { Listing } from "../pages/Listing";
+import { LogIn } from "../pages/Login";
 import { ProductDetail } from "../pages/ProductDetail";
+import { SignIn } from "../pages/SignIn";
+import { UserInf } from "../pages/User";
+import { BlogDetail } from "../pages/Blogs/BLogDetail";
 
 export const pathObj = {
   about: {
     title: "Giới thiệu",
-    path: "/about",
+    path: "/gioi-thieu",
   },
   listing: {
     title: "Menu",
-    path: "/listing",
+    path: "/danh-sach-san-pham",
   },
   blogs: {
     title: "Tin tức",
-    path: "/blogs",
+    path: "/tin-tuc",
+  },
+  blogDetail: {
+    title: "Chi tiet bai viet",
+    path: "/chi-tiet-bai-viet",
   },
   contact: {
-    title: "Liên hệ",
-    path: "/contact",
+    title: "Lien he",
+    path: "/lien-he",
   },
   productDetail: {
     title: "Chi tiet",
-    path: "/product-detail",
+    path: "/chi-tiet",
+  },
+  cart: {
+    title: "gio-hang",
+    path: "/gio-hang",
+  },
+  logIn: {
+    title: "dang nhap",
+    path: "/dang-nhap",
+  },
+  signIn: {
+    title: "dang ky",
+    path: "/dang-ky",
+  },
+  checkout: {
+    title: "check out",
+    path: "/check-out",
+  },
+  user: {
+    title: "Thông tin người dùng",
+    path: "/thong-tin-nguoi-dung",
   },
 };
 
@@ -52,5 +82,29 @@ export const routers = [
   {
     path: pathObj.productDetail.path,
     element: ProductDetail,
+  },
+  {
+    path: pathObj.cart.path,
+    element: Cart,
+  },
+  {
+    path: pathObj.logIn.path,
+    element: LogIn,
+  },
+  {
+    path: pathObj.signIn.path,
+    element: SignIn,
+  },
+  {
+    path: pathObj.checkout.path,
+    element: Checkout,
+  },
+  {
+    path: pathObj.user.path,
+    element: UserInf,
+  },
+  {
+    path: pathObj.blogDetail.path,
+    element: BlogDetail,
   },
 ];

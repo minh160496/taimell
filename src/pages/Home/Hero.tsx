@@ -1,7 +1,15 @@
-import { Box, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Heading,
+  Stack,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import React from "react";
 import Slider from "react-slick";
 import { IconArrow } from "../../Components/IconArrow";
+import { MotionHeading } from "./Motion";
 
 const settings = {
   dots: true,
@@ -21,16 +29,12 @@ export const Hero = () => {
   const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "10px" });
 
-  const banners = [
-    "https://cdn.shopify.com/s/files/1/0745/8989/6993/files/herom.jpg?v=1682582225&width=1100",
-    "https://cdn.shopify.com/s/files/1/0745/8989/6993/files/herom.jpg?v=1682582225&width=1100",
-    "https://cdn.shopify.com/s/files/1/0745/8989/6993/files/herom.jpg?v=1682582225&width=1100",
-  ];
+  const banners = ["src/assets/banner.png"];
 
   return (
     <Box
       position={"relative"}
-      aspectRatio={{ base: 1, md: 2 }}
+      aspectRatio={{ base: 1, md: 2.8 }}
       width={"full"}
       overflow={"hidden"}
     >
@@ -63,11 +67,36 @@ export const Hero = () => {
         zIndex={2}
         onClick={() => slider?.slickNext()}
       />
+
+      <Box pos="absolute" top={0} left={0} w="full" h="full" zIndex="2">
+        <Center h="full" style={{ fontFamily: "Pacifico" }}>
+          <MotionHeading>
+            <Stack>
+              <Heading
+                style={{ fontFamily: "Pacifico" }}
+                size={{ base: "md", sm: "xl", lg: "2xl" }}
+                textTransform="uppercase"
+                textAlign="center"
+                color="pink.700"
+              >
+                taimell
+              </Heading>
+              <Text
+                textAlign="center"
+                fontSize={{ base: "md", sm: "xl", lg: "2xl" }}
+                color="gray.600"
+              >
+                Slogan of my web content limited in 24 character!
+              </Text>
+            </Stack>
+          </MotionHeading>
+        </Center>
+      </Box>
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {banners.map((url, index) => (
           <Box
             key={index}
-            aspectRatio={{ base: 1, md: 2 }}
+            aspectRatio={{ base: 1, md: 2.8 }}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"

@@ -28,31 +28,16 @@ import { AiOutlineLogin, AiOutlineUser } from "react-icons/ai";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { TbSearch } from "react-icons/tb";
 import { InputSearch } from "../../Components/InputSearch";
-import { useWindowScroll } from "../../hooks/useWindow";
+import { CartNum } from "./CartNum";
+import { MotionHeader } from "./Motion";
 
 export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
   const { isOpen, onToggle } = useDisclosure();
 
-  const { scrollTop } = useWindowScroll();
-
-  console.log(scrollTop);
-
   return (
-    <Box
-      color={isHomePage ? "whiteAlpha.600" : "current"}
-      borderBottom={1}
-      borderStyle={"solid"}
-      borderColor={isHomePage && scrollTop < 100 ? "transparent" : "gray.300"}
-      pos="fixed"
-      top={0}
-      left={0}
-      right={0}
-      zIndex={3}
-      bg={isHomePage && scrollTop < 100 ? "transparent" : "#fff"}
-      transition="all ease .4s"
-    >
+    <MotionHeader isHomePage={isHomePage}>
       <Container maxW={"6xl"} as={Stack}>
-        <Flex w="100%" minH={"60px"} py={{ base: 2 }} align={"center"}>
+        <Flex w="100%" minH={"60px"} align={"center"}>
           <Flex
             flex={{ base: 1, md: "auto" }}
             ml={{ base: -2 }}
@@ -71,6 +56,7 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
               aria-label={"Toggle Navigation"}
             />
           </Flex>
+
           <Flex
             flex={{ base: 1 }}
             justify={{ base: "center", md: "start" }}
@@ -85,10 +71,7 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
             </Link>
 
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
-              <DesktopNav
-                linkColor={isHomePage && scrollTop < 100 ? "white" : "gray.700"}
-                linkHoverColor={"pink.400"}
-              />
+              <DesktopNav linkColor="pink.800" linkHoverColor="pink.400" />
             </Flex>
           </Flex>
 
@@ -99,31 +82,47 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
             spacing={6}
           >
             <InputHeaderDeskhop />
-            <IconButton aria-label="cart" variant="link">
-              <Icon
-                as={RiShoppingCartLine}
-                w="25px"
-                h="25px"
-                color="pink.400"
-                _hover={{ color: "pink.300" }}
-              />
-            </IconButton>
-            <IconButton aria-label="cart" variant="link">
+            <Link display="flex" href="/gio-hang" pos="relative">
+              <IconButton aria-label="cart" variant="link">
+                <Icon
+                  as={RiShoppingCartLine}
+                  w="25px"
+                  h="25px"
+                  color="pink.800"
+                  _hover={{ color: "pink.400" }}
+                  transition="all ease .4s"
+                />
+              </IconButton>
+              <CartNum n={0} top="-12px" left="25px" />
+            </Link>
+            <IconButton
+              aria-label="cart"
+              variant="link"
+              as={Link}
+              href="/dang-nhap"
+            >
               <Icon
                 as={AiOutlineLogin}
                 w="25px"
                 h="25px"
-                color="pink.400"
-                _hover={{ color: "pink.300" }}
+                color="pink.800"
+                _hover={{ color: "pink.400" }}
+                transition="all ease .4s"
               />
             </IconButton>
-            <IconButton aria-label="cart" variant="link">
+            <IconButton
+              as={Link}
+              aria-label="cart"
+              variant="link"
+              href="/thong-tin-nguoi-dung"
+            >
               <Icon
                 as={AiOutlineUser}
                 w="30px"
                 h="30px"
-                color="pink.400"
-                _hover={{ color: "pink.300" }}
+                color="pink.800"
+                _hover={{ color: "pink.400" }}
+                transition="all ease .4s"
               />
             </IconButton>
           </Stack>
@@ -133,7 +132,7 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
-    </Box>
+    </MotionHeader>
   );
 };
 
@@ -148,15 +147,16 @@ const InputHeaderDeskhop = () => {
         >
           <Icon
             as={TbSearch}
-            color="pink.400"
+            color="pink.800"
             w="25px"
             h="25px"
-            _hover={{ color: "pink.300" }}
+            _hover={{ color: "pink.400" }}
+            transition="all ease .4s"
           />
         </IconButton>
       </PopoverTrigger>
       <PopoverContent display={{ base: "none", md: "block" }}>
-        <PopoverHeader color="pink.400">Search your product</PopoverHeader>
+        <PopoverHeader color="pink.800">Search your product</PopoverHeader>
         <PopoverBody>
           <Box display={{ base: "none", md: "block" }}>
             <InputSearch color="gray.600" />
@@ -175,7 +175,7 @@ const DesktopNav = ({
   linkHoverColor: string;
 }) => {
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack direction={"row"} spacing={{ base: 3, lg: 8 }}>
       {NAV_ITEMS.map((navItem) => (
         <DeskhopNavItem
           key={navItem.label}
@@ -217,13 +217,14 @@ const DeskhopNavItem = ({
           <Link
             p={2}
             href={navItem.href ?? "#"}
-            fontSize={"lg"}
+            fontSize={{ base: "md", lg: "xl" }}
             fontWeight={600}
             color={colorLink}
             _hover={{
               textDecoration: "none",
               color: linkHoverColor,
             }}
+            transition="color ease .2s"
           >
             <Flex align="center">
               <Text>{navItem.label}</Text>
@@ -373,34 +374,34 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Home",
-    href: "#",
+    label: "Trang chủ",
+    href: "/",
   },
   {
-    label: "About",
-    href: "#",
+    label: "Giới thiệu",
+    href: "/gioi-thieu",
   },
   {
     label: "Menu",
     children: [
       {
-        label: "Explore Design Work",
+        label: "Tất cả sản phẩm",
         subLabel: "Trending Design to inspire you",
-        href: "#",
+        href: "danh-sach-san-pham",
       },
       {
-        label: "New & Noteworthy",
+        label: "Sữa rửa mặt",
         subLabel: "Up-and-coming Designers",
         href: "#",
       },
     ],
   },
   {
-    label: "Blog",
-    href: "#",
+    label: "Tin tức",
+    href: "/tin-tuc",
   },
   {
-    label: "Contact",
-    href: "#",
+    label: "Liên hệ",
+    href: "/lien-he",
   },
 ];

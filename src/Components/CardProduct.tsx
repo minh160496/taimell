@@ -24,6 +24,8 @@ import {
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 import styled from "@emotion/styled";
+import { ButtonAddCart } from "./ButtonAddCart";
+import { ButtonBuy } from "./ButtonBuy";
 
 interface RatingProps {
   rating: number;
@@ -91,6 +93,7 @@ export const CardProduct = (props: ICardProduct) => {
   return (
     <LinkBox
       as={Card}
+      shadow="xl"
       transition="0.5s"
       _hover={{ transform: "translateY(-10px)" }}
       cursor="pointer"
@@ -115,12 +118,8 @@ export const CardProduct = (props: ICardProduct) => {
           justifyContent="space-between"
           w="100%"
         >
-          <Button variant="solid" colorScheme="pink" flex={1}>
-            Buy now
-          </Button>
-          <Button variant="ghost" colorScheme="green" flex={1}>
-            Add to cart
-          </Button>
+          <ButtonAddCart flex={1}>Buy now</ButtonAddCart>
+          <ButtonBuy flex={1}>Add to cart</ButtonBuy>
         </ButtonGroup>
       </CardFooter>
     </LinkBox>

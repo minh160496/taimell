@@ -5,8 +5,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {routers.map((router) => (
-          <Route path={router.path} element={<router.element />} />
+        {routers.map((router, index: number) => (
+          <Route key={index} path={router.path} element={<router.element />} />
         ))}
       </Routes>
     </BrowserRouter>

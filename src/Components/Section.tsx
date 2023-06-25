@@ -1,43 +1,47 @@
-import { useState } from "react";
-import Slider from "react-slick";
 import {
   Box,
   Center,
   Heading,
-  IconButton,
   Text,
   useBreakpointValue,
+  Button,
+  Link,
 } from "@chakra-ui/react";
-import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
+import { useState } from "react";
+import Slider from "react-slick";
 import { IconArrow } from "./IconArrow";
 
 interface ITabProduct {
   title: string;
   subTitle: string;
+  path?: string;
   children: React.ReactNode;
 }
 
-export const TabProducts = (props: ITabProduct) => {
-  const { title, subTitle, children } = props;
+export const SectionModel = (props: ITabProduct) => {
+  const { title, subTitle, path = "/", children } = props;
   return (
     <Box>
       <Center>
         <Heading>{title}</Heading>
       </Center>
-      <Center mb="40px">
-        <Text textAlign="center">{subTitle}</Text>
+      <Center mb="24px">
+        <Text textAlign="center" color="gray.600">
+          {subTitle}
+        </Text>
       </Center>
-      <CarouselProducts>{children}</CarouselProducts>
+      <CarouselProducts path={path}>{children}</CarouselProducts>
     </Box>
   );
 };
 
 interface ICarouselProducts {
+  path?: string;
   children: React.ReactNode;
 }
 
 export const CarouselProducts = (props: ICarouselProducts) => {
-  const { children } = props;
+  const { path, children } = props;
   const settings = {
     infinite: true,
     speed: 500,
@@ -91,33 +95,47 @@ export const CarouselProducts = (props: ICarouselProducts) => {
 
   const top = useBreakpointValue({ base: "50%" });
   const side = useBreakpointValue({ base: "10px", md: "-20px" });
+
   return (
-    <Box pos="relative">
-      <IconArrow
-        w="40px"
-        h="40px"
-        action="prev"
-        aria-label="left-arrow"
-        left={side}
-        top={top}
-        transform={"translate(0%, -50%)"}
-        zIndex={2}
-        onClick={() => slider?.slickPrev()}
-      />
-      <IconArrow
-        w="40px"
-        h="40px"
-        action="next"
-        aria-label="left-arrow"
-        right={side}
-        top={top}
-        transform={"translate(0%, -50%)"}
-        zIndex={2}
-        onClick={() => slider?.slickNext()}
-      />
-      <Slider {...settings} ref={(slider) => setSlider(slider)}>
-        {children}
-      </Slider>
-    </Box>
+    <>
+      <Box pos="relative">
+        <IconArrow
+          w="40px"
+          h="40px"
+          action="prev"
+          aria-label="left-arrow"
+          left={side}
+          top={top}
+          transform={"translate(0%, -50%)"}
+          zIndex={2}
+          onClick={() => slider?.slickPrev()}
+        />
+        <IconArrow
+          w="40px"
+          h="40px"
+          action="next"
+          aria-label="left-arrow"
+          right={side}
+          top={top}
+          transform={"translate(0%, -50%)"}
+          zIndex={2}
+          onClick={() => slider?.slickNext()}
+        />
+        <Slider {...settings} ref={(slider) => setSlider(slider)}>
+          {children}
+        </Slider>
+      </Box>
+      <Center>
+        <Button
+          as={Link}
+          mt="24px"
+          colorScheme="pink"
+          variant="link"
+          href={path}
+        >
+          Xem tất cả
+        </Button>
+      </Center>
+    </>
   );
 };

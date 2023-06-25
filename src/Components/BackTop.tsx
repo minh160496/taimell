@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export const BackTop = () => {
   const [isShow, setIsShow] = useState(false);
   const handleFadeTop = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -32,7 +32,9 @@ export const BackTop = () => {
           w="70px"
           h="70px"
           rounded="50%"
-          bg="pink.200"
+          bg="pink.400"
+          transition=".3s"
+          _hover={{ backgroundColor: "pink.500" }}
         >
           <Icon as={FaArrowUp} fill="white" width={25} height={25} />
         </Center>
