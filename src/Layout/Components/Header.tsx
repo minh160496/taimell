@@ -12,7 +12,6 @@ import {
   Icon,
   IconButton,
   Image,
-  Link,
   Popover,
   PopoverBody,
   PopoverContent,
@@ -23,6 +22,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
+import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AiOutlineLogin, AiOutlineUser } from "react-icons/ai";
 import { RiShoppingCartLine } from "react-icons/ri";
@@ -62,11 +62,19 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
             justify={{ base: "center", md: "start" }}
             align="center"
           >
-            <Link href="/">
-              <Image w="200px" src="/logo.png" alt="Logo" py={"12px"} />
+            <Link to="/">
+              <Image
+                w={{ base: "180px", lg: "200px" }}
+                src="/logo.png"
+                alt="Logo"
+                py={"12px"}
+              />
             </Link>
 
-            <Flex display={{ base: "none", md: "flex" }} ml={10}>
+            <Flex
+              display={{ base: "none", md: "flex" }}
+              ml={{ base: 2, xl: 10 }}
+            >
               <DesktopNav linkColor="pink.800" linkHoverColor="pink.400" />
             </Flex>
           </Flex>
@@ -74,14 +82,30 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
           <Stack
             flex={{ base: 1, md: 0 }}
             justify={"flex-end"}
+            align="center"
             direction={"row"}
-            spacing={6}
+            spacing={{ base: 2, lg: 6 }}
           >
             <InputHeaderDeskhop />
-            <Link display="flex" href="/gio-hang" pos="relative">
+            <Link to="/gio-hang">
+              <Flex pos="relative">
+                <IconButton aria-label="cart" variant="link">
+                  <Icon
+                    as={RiShoppingCartLine}
+                    w="25px"
+                    h="25px"
+                    color="pink.800"
+                    _hover={{ color: "pink.400" }}
+                    transition="all ease .4s"
+                  />
+                </IconButton>
+                <CartNum n={0} top="-12px" left="25px" />
+              </Flex>
+            </Link>
+            <Link to="/dang-nhap">
               <IconButton aria-label="cart" variant="link">
                 <Icon
-                  as={RiShoppingCartLine}
+                  as={AiOutlineLogin}
                   w="25px"
                   h="25px"
                   color="pink.800"
@@ -89,38 +113,19 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
                   transition="all ease .4s"
                 />
               </IconButton>
-              <CartNum n={0} top="-12px" left="25px" />
             </Link>
-            <IconButton
-              aria-label="cart"
-              variant="link"
-              as={Link}
-              href="/dang-nhap"
-            >
-              <Icon
-                as={AiOutlineLogin}
-                w="25px"
-                h="25px"
-                color="pink.800"
-                _hover={{ color: "pink.400" }}
-                transition="all ease .4s"
-              />
-            </IconButton>
-            <IconButton
-              as={Link}
-              aria-label="cart"
-              variant="link"
-              href="/thong-tin-nguoi-dung"
-            >
-              <Icon
-                as={AiOutlineUser}
-                w="30px"
-                h="30px"
-                color="pink.800"
-                _hover={{ color: "pink.400" }}
-                transition="all ease .4s"
-              />
-            </IconButton>
+            <Link to="/thong-tin-nguoi-dung">
+              <IconButton aria-label="cart" variant="link">
+                <Icon
+                  as={AiOutlineUser}
+                  w="30px"
+                  h="30px"
+                  color="pink.800"
+                  _hover={{ color: "pink.400" }}
+                  transition="all ease .4s"
+                />
+              </IconButton>
+            </Link>
           </Stack>
         </Flex>
       </Container>
@@ -210,25 +215,25 @@ const DeskhopNavItem = ({
         onClose={() => setColorLink(linkColor)}
       >
         <PopoverTrigger>
-          <Link
-            p={2}
-            href={navItem.href ?? "#"}
-            fontSize={{ base: "md", lg: "xl" }}
-            fontWeight={600}
-            color={colorLink}
-            _hover={{
-              textDecoration: "none",
-              color: linkHoverColor,
-            }}
-            transition="color ease .2s"
-          >
-            <Flex align="center">
+          <NavLink to={navItem.href ?? "#"}>
+            <Flex
+              align="center"
+              p={2}
+              fontSize={{ base: "sm", lg: "md", xl: "xl" }}
+              fontWeight={600}
+              color={colorLink}
+              _hover={{
+                textDecoration: "none",
+                color: linkHoverColor,
+              }}
+              transition="color ease .2s"
+            >
               <Text>{navItem.label}</Text>
               {navItem.children && (
                 <Icon as={ChevronDownIcon} color="inherit" w={6} h={6} />
               )}
             </Flex>
-          </Link>
+          </NavLink>
         </PopoverTrigger>
 
         {navItem.children && (
@@ -254,40 +259,39 @@ const DeskhopNavItem = ({
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
-    <Link
-      href={href}
-      role={"group"}
-      display={"block"}
-      p={2}
-      rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
-    >
-      <Stack direction={"row"} align={"center"}>
-        <Box>
-          <Text
-            color="gray.700"
+    <Link to={href ? href : "#"}>
+      <Box
+        p={2}
+        rounded={"md"}
+        _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      >
+        <Stack direction={"row"} align={"center"}>
+          <Box>
+            <Text
+              color="gray.700"
+              transition={"all .3s ease"}
+              _groupHover={{ color: "pink.400" }}
+              fontWeight={500}
+            >
+              {label}
+            </Text>
+            <Text fontSize={"sm"} color="gray.400">
+              {subLabel}
+            </Text>
+          </Box>
+          <Flex
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
-            fontWeight={500}
+            transform={"translateX(-10px)"}
+            opacity={0}
+            _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+            justify={"flex-end"}
+            align={"center"}
+            flex={1}
           >
-            {label}
-          </Text>
-          <Text fontSize={"sm"} color="gray.400">
-            {subLabel}
-          </Text>
-        </Box>
-        <Flex
-          transition={"all .3s ease"}
-          transform={"translateX(-10px)"}
-          opacity={0}
-          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-          justify={"flex-end"}
-          align={"center"}
-          flex={1}
-        >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
-        </Flex>
-      </Stack>
+            <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          </Flex>
+        </Stack>
+      </Box>
     </Link>
   );
 };
@@ -312,33 +316,33 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
-      <Flex
-        py={2}
-        as={Link}
-        href={href ?? "#"}
-        justify={"space-between"}
-        align={"center"}
-        _hover={{
-          textDecoration: "none",
-        }}
-      >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
+      <Link to={href || "#"}>
+        <Flex
+          py={2}
+          justify={"space-between"}
+          align={"center"}
+          _hover={{
+            textDecoration: "none",
+          }}
         >
-          {label}
-        </Text>
-        {children && (
-          <Icon
-            as={ChevronDownIcon}
-            color="gray.600"
-            transition={"all .25s ease-in-out"}
-            transform={isOpen ? "rotate(180deg)" : ""}
-            w={6}
-            h={6}
-          />
-        )}
-      </Flex>
+          <Text
+            fontWeight={600}
+            color={useColorModeValue("pink.700", "gray.200")}
+          >
+            {label}
+          </Text>
+          {children && (
+            <Icon
+              as={ChevronDownIcon}
+              color="pink.700"
+              transition={"all .25s ease-in-out"}
+              transform={isOpen ? "rotate(180deg)" : ""}
+              w={6}
+              h={6}
+            />
+          )}
+        </Flex>
+      </Link>
 
       <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
         <Stack
@@ -351,8 +355,14 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href} color="gray.500">
-                {child.label}
+              <Link
+                key={child.label}
+                to={child.href || "#"}
+                style={{ display: "block", width: "100%" }}
+              >
+                <Text py={2} fontSize="md" fontWeight={500} color="pink.500">
+                  {child.label}
+                </Text>
               </Link>
             ))}
         </Stack>
@@ -383,7 +393,7 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: "Tất cả sản phẩm",
         subLabel: "Trending Design to inspire you",
-        href: "danh-sach-san-pham",
+        href: "/danh-sach-san-pham",
       },
       {
         label: "Sữa rửa mặt",

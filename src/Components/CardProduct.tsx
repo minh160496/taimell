@@ -12,6 +12,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { Link as LinkRoute } from "react-router-dom";
 import styled from "@emotion/styled";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { ButtonAddCart } from "./ButtonAddCart";
@@ -91,7 +92,7 @@ export const CardProduct = (props: ICardProduct) => {
       cursor="pointer"
     >
       <CardBody>
-        <LinkOverlay href={href}>
+        <LinkOverlay as={LinkRoute} to={href}>
           <Image src={imageURL} alt={name} borderRadius="lg" />
         </LinkOverlay>
         <Stack mt="6" spacing="3">

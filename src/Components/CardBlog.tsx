@@ -10,6 +10,7 @@ import {
   LinkBox,
   LinkOverlay,
 } from "@chakra-ui/react";
+import { Link as LinkRoute } from "react-router-dom";
 
 export const CardBlog = () => {
   return (
@@ -41,7 +42,7 @@ export const CardBlog = () => {
           >
             Blog
           </Text>
-          <LinkOverlay href="/chi-tiet-bai-viet">
+          <LinkOverlay as={LinkRoute} to="/chi-tiet-bai-viet">
             <Heading
               color={useColorModeValue("gray.700", "white")}
               fontSize={"2xl"}

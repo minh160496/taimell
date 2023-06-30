@@ -62,7 +62,11 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = (props) => {
 export const Blogs = () => {
   return (
     <Layout>
-      <Container maxW={"6xl"} p="12" mt={{ base: "40px", md: "160px" }}>
+      <Container
+        maxW={"6xl"}
+        mt={{ base: "140px", md: "160px" }}
+        pb={{ base: "40px", lg: "80px" }}
+      >
         <Heading as="h1">Bài viết mới nhất</Heading>
         <Box
           marginTop={{ base: "1", sm: "5" }}

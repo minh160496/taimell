@@ -31,8 +31,8 @@ export const Contact = () => {
   return (
     <Layout>
       <Container
-        mt={{ base: "100px", md: "140px" }}
-        mb={{ base: "40px", md: "40px" }}
+        mt={{ base: "140px", md: "160px" }}
+        pb={{ base: "40px", md: "60px" }}
         maxW="6xl"
         centerContent
         overflow="hidden"

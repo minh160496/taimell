@@ -9,7 +9,7 @@ export const About = () => {
           <Heading
             size="xl"
             color="gray.700"
-            mt={{ base: "40px", md: "160px" }}
+            mt={{ base: "140px", md: "160px" }}
           >
             Nội dung giới thiệu về công ty
           </Heading>
