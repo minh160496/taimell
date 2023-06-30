@@ -11,12 +11,12 @@ import {
   Input,
   InputGroup,
   InputRightElement,
-  Link,
   Stack,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Layout } from "../../Layout";
 
 export const SignIn = () => {
@@ -84,7 +84,7 @@ export const SignIn = () => {
                 <Stack pt={6}>
                   <Text align={"center"}>
                     Bạn đã có tài khoản?{" "}
-                    <Link color={"blue.400"} href="/dang-nhap">
+                    <Link style={{ color: "blue" }} to="/dang-nhap">
                       Đăng nhập
                     </Link>
                   </Text>

@@ -8,11 +8,11 @@ import {
   FormLabel,
   Heading,
   Input,
-  Link,
   Stack,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { Layout } from "../../Layout";
 
 export const LogIn = () => {
@@ -24,8 +24,7 @@ export const LogIn = () => {
             <Stack align={"center"}>
               <Heading fontSize={"4xl"}>Sign in to your account</Heading>
               <Text fontSize={"lg"} color={"gray.600"}>
-                to enjoy all of our cool{" "}
-                <Link color={"blue.400"}>features</Link> ✌️
+                to enjoy all of our cool ✌️
               </Text>
             </Stack>
             <Box
@@ -45,8 +44,8 @@ export const LogIn = () => {
                 </FormControl>
                 <Stack>
                   <Text align={"center"}>
-                    Bạn chưa có tài khoản?
-                    <Link color={"blue.400"} href="/dang-ky">
+                    Bạn chưa có tài khoản?{" "}
+                    <Link style={{ color: "blue" }} to="/dang-ky">
                       Đăng ký
                     </Link>
                   </Text>
@@ -58,7 +57,6 @@ export const LogIn = () => {
                     justify={"space-between"}
                   >
                     <Checkbox>Remember me</Checkbox>
-                    <Link color={"blue.400"}>Forgot password?</Link>
                   </Stack>
                   <Button colorScheme="pink" color={"white"}>
                     Đăng nhập
