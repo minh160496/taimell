@@ -82,7 +82,7 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
           <Stack
             flex={{ base: 1, md: 0 }}
             justify={"flex-end"}
-            align="center"
+            align="baseline"
             direction={"row"}
             spacing={{ base: 2, lg: 6 }}
           >
@@ -176,7 +176,7 @@ const DesktopNav = ({
   linkHoverColor: string;
 }) => {
   return (
-    <Stack direction={"row"} spacing={{ base: 3, lg: 8 }}>
+    <Stack direction={"row"} spacing={{ base: 3, lg: 8 }} align="center">
       {NAV_ITEMS.map((navItem) => (
         <DeskhopNavItem
           key={navItem.label}
