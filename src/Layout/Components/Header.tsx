@@ -47,9 +47,9 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
               onClick={onToggle}
               icon={
                 isOpen ? (
-                  <CloseIcon w={3} h={3} />
+                  <CloseIcon w={3} h={3} color="pink.700" />
                 ) : (
-                  <HamburgerIcon w={5} h={5} />
+                  <HamburgerIcon w={5} h={5} color="pink.700" />
                 )
               }
               variant={"ghost"}
@@ -92,8 +92,8 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
                 <IconButton aria-label="cart" variant="link">
                   <Icon
                     as={RiShoppingCartLine}
-                    w="25px"
-                    h="25px"
+                    w={{ base: "20px", md: "25px" }}
+                    h={{ base: "20px", md: "25px" }}
                     color="pink.800"
                     _hover={{ color: "pink.400" }}
                     transition="all ease .4s"
@@ -106,8 +106,8 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
               <IconButton aria-label="cart" variant="link">
                 <Icon
                   as={AiOutlineLogin}
-                  w="25px"
-                  h="25px"
+                  w={{ base: "20px", md: "25px" }}
+                  h={{ base: "20px", md: "25px" }}
                   color="pink.800"
                   _hover={{ color: "pink.400" }}
                   transition="all ease .4s"
@@ -115,11 +115,11 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
               </IconButton>
             </Link>
             <Link to="/thong-tin-nguoi-dung">
-              <IconButton aria-label="cart" variant="link">
+              <IconButton aria-label="user" variant="link">
                 <Icon
                   as={AiOutlineUser}
-                  w="30px"
-                  h="30px"
+                  w={{ base: "20px", md: "25px" }}
+                  h={{ base: "20px", md: "25px" }}
                   color="pink.800"
                   _hover={{ color: "pink.400" }}
                   transition="all ease .4s"
@@ -303,7 +303,7 @@ const MobileNav = () => {
       p={4}
       display={{ md: "none" }}
     >
-      <InputSearch placeholder="Search your hair" />
+      <InputSearch placeholder="Search your hair" mb={6} />
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
