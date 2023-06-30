@@ -1,4 +1,4 @@
-import { Box, Container, Stack } from "@chakra-ui/react";
+import { Box, Container, Stack, Image } from "@chakra-ui/react";
 import { SectionModel } from "../../Components/Section";
 import { CardProduct } from "../../Components/CardProduct";
 
@@ -9,6 +9,7 @@ export const BestSellers = () => {
         title="Best Seller"
         subTitle="the readable content of a page when looking at its layout. The point of using Lorem Ipsum is"
         path="/danh-sach-san-pham"
+        after={<Image w={{ base: "150px", lg: "200px" }} src="/hoa.png" />}
       >
         {[1, 2, 3, 4, 5, 6].map((number) => (
           <Box px="10px" py="12px" key={number}>

@@ -3,6 +3,7 @@ import {
   Button,
   Center,
   Heading,
+  Image,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
@@ -10,20 +11,30 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { IconArrow } from "./IconArrow";
+import { MotionAfter } from "./Motions";
 
 interface ITabProduct {
   title: string;
   subTitle: string;
   path?: string;
+  after?: React.ReactNode;
   children: React.ReactNode;
 }
 
 export const SectionModel = (props: ITabProduct) => {
-  const { title, subTitle, path = "/", children } = props;
+  const { title, subTitle, path = "/", after, children } = props;
   return (
     <Box>
-      <Center>
+      <Center pos="relative" pt={{ base: "70px", lg: 0 }}>
         <Heading>{title}</Heading>
+        <Box
+          pos="absolute"
+          right={{ base: "50%", lg: "200px" }}
+          top={{ base: "-20px", lg: "50%" }}
+          transform={{ base: "translate(50%, 0)", lg: "translate(0, -50%)" }}
+        >
+          {after && <MotionAfter>{after}</MotionAfter>}
+        </Box>
       </Center>
       <Center mb="24px">
         <Text textAlign="center" color="gray.600">
