@@ -1,13 +1,13 @@
 import {
   Box,
+  Button,
   Center,
   Heading,
   Text,
   useBreakpointValue,
-  Button,
-  Link,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { IconArrow } from "./IconArrow";
 
@@ -126,13 +126,7 @@ export const CarouselProducts = (props: ICarouselProducts) => {
         </Slider>
       </Box>
       <Center>
-        <Button
-          as={Link}
-          mt="24px"
-          colorScheme="pink"
-          variant="link"
-          href={path}
-        >
+        <Button as={Link} mt="24px" colorScheme="pink" variant="link" to={path}>
           Xem tất cả
         </Button>
       </Center>

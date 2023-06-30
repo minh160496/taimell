@@ -15,3 +15,19 @@ export const useWindowScroll = () => {
 
   return { scrollTop };
 };
+
+export const useSizeWindow = () => {
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const handleWidowSize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleWidowSize);
+
+    return () => window.removeEventListener("resize", handleWidowSize);
+  }, []);
+
+  return { wWindow: width };
+};

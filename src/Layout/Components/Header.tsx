@@ -64,7 +64,7 @@ export const Header = ({ isHomePage }: { isHomePage: boolean }) => {
           >
             <Link to="/">
               <Image
-                w={{ base: "180px", lg: "200px" }}
+                w={{ base: "150px", lg: "200px" }}
                 src="/logo.png"
                 alt="Logo"
                 py={"12px"}

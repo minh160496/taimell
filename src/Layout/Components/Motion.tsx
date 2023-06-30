@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
-import { useWindowScroll } from "../../hooks/useWindow";
+import { useSizeWindow, useWindowScroll } from "../../hooks/useWindow";
 
 interface IMotionHeader {
   isHomePage?: boolean;
@@ -10,12 +10,18 @@ interface IMotionHeader {
 export const MotionHeader = (props: IMotionHeader) => {
   const { isHomePage = false, children } = props;
   const { scrollTop } = useWindowScroll();
+  const { wWindow } = useSizeWindow();
+
+  console.log(wWindow);
 
   return (
     <motion.div
       animate
       style={{
-        background: isHomePage && scrollTop < 100 ? "transparent" : "white",
+        background:
+          isHomePage && scrollTop < 100 && wWindow > 961
+            ? "transparent"
+            : "white",
         boxShadow:
           isHomePage && scrollTop < 100
             ? "none"
