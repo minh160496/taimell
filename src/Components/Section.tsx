@@ -3,7 +3,6 @@ import {
   Button,
   Center,
   Heading,
-  Image,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";

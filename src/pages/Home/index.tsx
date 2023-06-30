@@ -1,4 +1,4 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Layout } from "../../Layout";
 import { useWindowScroll } from "../../hooks/useWindow";
 import { BestSellers } from "./BestSellers";
@@ -6,7 +6,7 @@ import { Blogs } from "./Blogs";
 import { Categories } from "./Categories";
 import { FeedBack } from "./FeedBack";
 import { Hero } from "./Hero";
-import { Motion, MotionHoa, MotionSon } from "./Motion";
+import { Motion } from "./Motion";
 
 export const Home = () => {
   const { scrollTop } = useWindowScroll();

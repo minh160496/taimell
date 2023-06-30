@@ -39,35 +39,3 @@ export const MotionHeading = (props: IMotion) => {
     </motion.div>
   );
 };
-
-export const MotionSon = (props: IMotion) => {
-  const { children } = props;
-  return (
-    <motion.div
-      animate={{ rotate: ["45deg", 0] }}
-      transition={{
-        duration: 2,
-        repeat: Infinity,
-        repeatDelay: 1,
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-export const MotionHoa = (props: IMotion) => {
-  const { children } = props;
-  return (
-    <motion.div
-      animate={{ rotate: ["-5deg", 0] }}
-      transition={{
-        duration: 2,
-        repeat: Infinity,
-        repeatDelay: 1,
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-};
